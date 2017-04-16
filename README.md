@@ -1,6 +1,10 @@
 # Order Service
 
-Ordere Service is built on Spring. Order Service is responsible for Submit a new Order and for retrieving a single Order.
+Order Service is responsible for:
+- Submit a new Order 
+- Retrieving a single Order
+
+Order Service is built on Spring.
 
 - Spring Boot
 - Spring Cloud
@@ -9,7 +13,12 @@ Ordere Service is built on Spring. Order Service is responsible for Submit a new
 - Mockito
 - Jacoco Code Coverage 
 
-See the wiki for REST operations.
+Integration with Travic CI for continuous integration.
+
+[![Build Status](https://travis-ci.org/haighis/order-service.svg?branch=master)](https://travis-ci.org/haighis/order-service)
+
+## Usage
+See the wiki for REST operations. What can I do with Order Service? You can use it to Submit a new Order and get a single Order that are accessible via REST POST/GET with JSON content.
 
 ## Running
 
@@ -43,5 +52,3 @@ Rest API - Order Resource Code Coverage
 
 Order Service Code Coverage
 ![Test Summary](/media/orderservicecodecoverage.jpg?raw=true "Order Service Code Coverage")
-
-
