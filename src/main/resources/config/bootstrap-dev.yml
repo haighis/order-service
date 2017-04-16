@@ -1,0 +1,14 @@
+# ===================================================================
+# Spring Cloud Config bootstrap configuration for the "dev" profile
+# ===================================================================
+
+spring:
+    cloud:
+        config:
+            fail-fast: false # set true will prevent microservice from starting unless you have Netflix Eureka running
+            uri: http://admin:admin@localhost:8761/config
+            # name of the config server's property source (file.yml) that we want to use
+            name: orderservice
+            profile: dev # profile(s) of the property source
+            label: master # toggle to switch to a different version of the configuration as stored in git
+            # it can be set to any label, branch or commit of the config source git repository
