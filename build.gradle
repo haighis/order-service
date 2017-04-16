@@ -25,6 +25,8 @@ apply plugin: 'spring-boot'
 apply plugin: 'war'
 apply plugin: 'propdeps'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: "jacoco" 
+
 dependencyManagement {
   imports {
     mavenBom 'org.springframework.cloud:spring-cloud-dependencies:'+ spring_cloud_version
@@ -54,27 +56,9 @@ test {
     include '**/*IntTest*'
 
     ignoreFailures true
-    reports.html.enabled = false
+    reports.html.enabled = true
 }
 
-
-task cucumberTest(type: Test) {
-    include '**/CucumberTest*'
-
-    ignoreFailures true
-    reports.html.enabled = false
-}
-
-test.finalizedBy(cucumberTest)
-
-task testReport(type: TestReport) {
-    destinationDir = file("$buildDir/reports/tests")
-    reportOn test
-    reportOn cucumberTest
-}
-
-
-cucumberTest.finalizedBy(testReport)
 
 apply from: 'gradle/sonar.gradle'
 
@@ -83,7 +67,6 @@ apply from: 'gradle/liquibase.gradle'
 apply from: 'gradle/gatling.gradle'
 apply from: 'gradle/mapstruct.gradle'
 apply from: 'gradle/docker.gradle'
-//jhipster-needle-gradle-apply-from - JHipster will add additional gradle scripts to be applied here
 
 if (project.hasProperty('prod')) {
     apply from: 'gradle/profile_prod.gradle'
@@ -193,8 +176,6 @@ dependencies {
     
     testCompile "com.jayway.awaitility:awaitility:${awaility_version}"
     testCompile "com.jayway.jsonpath:json-path"
-    testCompile "info.cukes:cucumber-junit:${cucumber_version}"
-    testCompile "info.cukes:cucumber-spring:${cucumber_version}"
     testCompile "org.springframework.boot:spring-boot-starter-test"
     testCompile "org.assertj:assertj-core:${assertj_core_version}"
     testCompile "junit:junit"
@@ -216,6 +197,15 @@ clean {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.13'
+}
+
+jacocoTestReport {
+    group = "Reporting"
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.destination "${buildDir}/reports/coverage"
+    }
 }
 
 task stage(dependsOn: 'bootRepackage') {
