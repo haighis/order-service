@@ -56,32 +56,3 @@ security:
 server:
     port: 10344
     address: localhost
-
-# ===================================================================
-# JHipster specific properties
-# ===================================================================
-
-jhipster:
-    async:
-        corePoolSize: 2
-        maxPoolSize: 50
-        queueCapacity: 10000
-    security:
-        authentication:
-            jwt:
-                secret: 8ca86049ac359ecb11bd622d3dbb433e925f7ec3
-                # Token is valid 24 hours
-                tokenValidityInSeconds: 86400
-    metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
-        jmx.enabled: true
-    swagger:
-        title: orderservice API
-        description: orderservice API documentation
-        version: 0.0.1
-        termsOfServiceUrl:
-        contactName:
-        contactUrl:
-        contactEmail:
-        license:
-        licenseUrl:
-        enabled: false

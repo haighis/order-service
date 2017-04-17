@@ -43,7 +43,8 @@ public class OrderDtl implements Serializable {
     @Column(name = "sales_tax_amount")
     private Double salesTaxAmount;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.PERSIST) 
+    @JoinColumn(name="order_hdr_id", nullable=false)
     private OrderHdr orderHdr;
 
     public Long getId() {

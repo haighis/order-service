@@ -24,9 +24,9 @@ See the wiki for REST operations. What can I do with Order Service? You can use 
 
 ./gradlew bootRun
 
-## Viewing the API for Order Service
+## Viewing the API
 
-With Netflix Eureka + Swagger a self documenting API will demonstrate API Verbs available for Order Service 
+With Netflix Eureka + Swagger a self documenting API will demonstrate API Verbs available
 
 See the wiki for REST operations.
 

@@ -38,7 +38,7 @@ public class OrderHdr implements Serializable {
     @Column(name = "order_date", nullable = false)
     private LocalDate orderDate;
 
-    @OneToMany(mappedBy = "orderHdr")
+    @OneToMany(mappedBy = "orderHdr", cascade=CascadeType.PERSIST)
     @JsonIgnore
     private Set<OrderDtl> orderDtls = new HashSet<>();
 

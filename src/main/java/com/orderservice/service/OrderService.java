@@ -3,12 +3,12 @@ package com.orderservice.service;
 import com.orderservice.web.rest.dto.OrderHdrDTO;
 
 /**
- * Service Interface for managing OrderHdr.
+ * Service Interface for managing Order Header and associated Order Detail..
  */
 public interface OrderService {
-
+	
     /**
-     * Save a orderHdr.
+     * Save an Order with Order Header and Order Detail line items.
      * 
      * @param orderHdrDTO the entity to save
      * @return the persisted entity
@@ -16,9 +16,9 @@ public interface OrderService {
     OrderHdrDTO save(OrderHdrDTO orderHdrDTO);
 
     /**
-     *  Get the "id" orderHdr.
+     *  Get the Order by Order Id.
      *  
-     *  @param id the id of the entity
+     *  @param id the order id of the entity
      *  @return the entity
      */
     OrderHdrDTO findOne(Long id);

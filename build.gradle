@@ -59,6 +59,10 @@ test {
     reports.html.enabled = true
 }
 
+task testReport(type: TestReport) {
+    destinationDir = file("$buildDir/reports/tests")
+    reportOn test
+}
 
 apply from: 'gradle/sonar.gradle'
 

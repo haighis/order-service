@@ -52,6 +52,7 @@ public class OrderServiceImpl implements OrderService{
      * @param orderHdrDTO the entity to save
      * @return the OrderHdrDTO entity
      */
+    @Transactional
     public OrderHdrDTO save(OrderHdrDTO orderHdrDTO) {
         log.debug("Request to save Order Header and Order Details line items : {}", orderHdrDTO);
         
@@ -75,17 +76,17 @@ public class OrderServiceImpl implements OrderService{
         orderHdr = orderHdrRepository.save(orderHdr);
         
         // Convert Detail dto's to OrderDtl domain objects
-        List<OrderDtl> listOrderDetailDTOs = this.orderDtlMapper.orderDtlDTOsToOrderDtls(Arrays.asList(orderHdrDTO.getLineItemDetails()));
+        List<OrderDtl> listOrderDetails = this.orderDtlMapper.orderDtlDTOsToOrderDtls(Arrays.asList(orderHdrDTO.getLineItemDetails()));
         
-        // Hydrate the OrderHdrId on Order Detail DTO's
-        for(OrderDtlDTO order : orderHdrDTO.getLineItemDetails() ) {
-        	order.setOrderHdrId(orderHdr.getId());
+        // Set the OrderHdr on Order Detail
+        for(OrderDtl orderDetail : listOrderDetails ) {
+        	orderDetail.setOrderHdr(orderHdr);
         }
         
-        if(!listOrderDetailDTOs.isEmpty())
+        // Save Order Detail line items
+        if(!listOrderDetails.isEmpty())
         {
-            // Save Order Detail line items 
-            this.orderDetailRepository.save(listOrderDetailDTOs);
+            this.orderDetailRepository.save(listOrderDetails);
         }
         
         // return the dto with order id
@@ -94,6 +95,7 @@ public class OrderServiceImpl implements OrderService{
     }
     
     // Generate Order Number
+    // TODO refactor to an order number generator service. Need to guarantee uniqueness among order ids
     private int GenerateOrderNumber() {
     	// Set the Order Number
         Random random = new Random(System.nanoTime());
