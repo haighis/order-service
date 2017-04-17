@@ -24,6 +24,9 @@ See the wiki for REST operations. What can I do with Order Service? You can use 
 
 ./gradlew bootRun
 
+This Microservice can benefit from Netflix Eureka, but does not require Netflix Eureka in order to run. Run each Microservice Product Service, Shopping Cart Service and Order Service. Then run Shop UI and open your browser to 
+http://localhost:2005
+
 ## Viewing the API
 
 With Netflix Eureka + Swagger a self documenting API will demonstrate API Verbs available
