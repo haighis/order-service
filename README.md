@@ -18,7 +18,7 @@ Integration with Travic CI for continuous integration.
 [![Build Status](https://travis-ci.org/haighis/order-service.svg?branch=master)](https://travis-ci.org/haighis/order-service)
 
 ## Usage
-See the wiki for REST operations. What can I do with Order Service? You can use it to Submit a new Order and get a single Order that are accessible via REST POST/GET with JSON content.
+See the [wiki](https://github.com/haighis/order-service/wiki) for REST operations. What can I do with Order Service? You can use it to Submit a new Order and get a single Order that are accessible via REST POST/GET with JSON content.
 
 ## Running
 
@@ -31,7 +31,7 @@ http://localhost:2005
 
 With Netflix Eureka + Swagger a self documenting API will demonstrate API Verbs available
 
-See the wiki for REST operations.
+See the [wiki](https://github.com/haighis/order-service/wiki) for REST operations.
 
 ## Tests
 
