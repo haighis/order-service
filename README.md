@@ -48,7 +48,7 @@ Test Summary
 Jacoco Code Coverage Report is located at 'build/reports/coverage/index.html'
 
 Rest API - Order Resource Code Coverage
-![Test Summary](/media/restcodecoverage.jpg?raw=true "Rest API - Order Resource Code Coverage")
+![Order Resource](/media/restcodecoverage.jpg?raw=true "Rest API - Order Resource Code Coverage")
 
 Order Service Code Coverage
-![Test Summary](/media/orderservicecodecoverage.jpg?raw=true "Order Service Code Coverage")
+![Order Service](/media/orderservicecodecoverage.jpg?raw=true "Order Service Code Coverage")
