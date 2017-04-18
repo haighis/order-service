@@ -16,7 +16,7 @@
     <!--
         Added the entity OrderHdr.
     -->
-    <changeSet id="20170408210849-1" author="jhipster">
+    <changeSet id="20170408210849-1" author="jhaigh">
         <createTable tableName="order_hdr">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>

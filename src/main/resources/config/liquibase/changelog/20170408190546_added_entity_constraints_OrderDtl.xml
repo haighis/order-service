@@ -6,7 +6,7 @@
     <!--
         Added the constraints for entity OrderDtl.
     -->
-    <changeSet id="20170408190546-2" author="jhipster">
+    <changeSet id="20170408190546-2" author="jhaigh">
         
         <addForeignKeyConstraint baseColumnNames="order_hdr_id"
                                  baseTableName="order_dtl"
